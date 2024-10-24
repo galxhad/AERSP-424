@@ -107,9 +107,9 @@ int main()
 
     // Question 5. 
     // Initialization
-    double vel = 450;
+    double vel = 420;
     plane.setVel(vel);
-    double tspan = 15;
+    double tspan = 69;
 
     int maxiters = 1500, iter = 0;
     
