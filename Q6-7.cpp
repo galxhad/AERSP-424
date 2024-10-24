@@ -1,60 +1,53 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <memory> // For smart pointers
-
 using namespace std;
 
 // Flight struct to hold route information
-struct FlightMaps {
+struct FlightMaps
+{
     string from, to;
     int distance;
-
-    FlightMaps(const string& from, const string& to, int distance)
-        : from(from), to(to), distance(distance) {}
+    FlightMaps(const string& from, const string& to, int distance) : from(from), to(to), distance(distance) {}
 };
 
 // Creating class Pilot
-class Pilot {
+class Pilot
+{
 private:
     string name;
 
 public:
     // Constructor
-    Pilot(const string& name) : name(name) {
-        cout << "Pilot " << name << " is at the gate and ready to board the plane." << endl;
-    }
+    Pilot(const string& name) : name(name) { cout << "Pilot " << name << " with memory address " << this << " is at the gate and ready to board the plane." << endl; }
 
     // Destructor
-    ~Pilot() {
-        cout << "Pilot " << name << " is out of the airplane." << endl;
-    }
+    ~Pilot() { cout << "Pilot " << name << " is out of the airplane." << endl; }
 
     // Getter function
     string getName() const { return name; }
+
+    // Pointer to the Plane object
+    class Plane* myPlane;
 };
 
 // Creating class Plane
-class Plane {
+class Plane
+{
 private:
     double pos, vel, distance;
     string origin, destination;
     bool at_SCE;
     vector<FlightMaps> flight_distance;
-    unique_ptr<Pilot> pilot;
-    unique_ptr<Pilot> copilot;
+    Pilot* pilot;
+    Pilot* copilot;
 
 public:
     // Constructor
-    Plane(const string& from, const string& to)
-        : pos(0.0), vel(0.0), distance(0), origin(from), destination(to), at_SCE(true) {
-        cout << "Plane created." << endl;
-    }
+    Plane(const string& from, const string& to) : pos(0.0), vel(0.0), distance(0), origin(from), destination(to), at_SCE(true), pilot(nullptr), copilot(nullptr) { cout << "Plane created at: " << this << endl; }
 
     // Destructor
-    ~Plane() {
-        cout << "Plane destroyed" << endl;
-    }
+    ~Plane() { cout << "Plane destroyed" << endl; }
 
     // Getter functions
     double getPos() const { return pos; }
@@ -63,12 +56,10 @@ public:
     bool isAtSCE() const { return at_SCE; }
     double getVel() const { return vel; }
 
-    void setPilots(unique_ptr<Pilot> pilotName, unique_ptr<Pilot> copilotName) {
-        pilot = move(pilotName);
-        copilot = move(copilotName);
-    }
+    void setPilots(Pilot* pilotName, Pilot* copilotName) { pilot = pilotName; copilot = copilotName; }
 
-    void get_distance() {
+    void get_distance()
+    {
         for (const auto& flight : flight_distance) {
             if (flight.from == origin && flight.to == destination) {
                 distance = flight.distance;
@@ -86,24 +77,30 @@ public:
     void setVel(double newVel) { vel = newVel; }
 
     // Function to operate the plane
-    void operate(double dt) {
+    void operate(double dt)
+    {
         get_distance();
-        if (pos < distance) {
+        if (pos < distance)
+        {
             pos += vel / 3600 * dt; // Update position based on velocity and time
             at_SCE = false; // Not at SCE yet
         }
-        else {
-            if (destination == "SCE") {
+        else
+        {
+            if (destination == "SCE")
+            {
                 at_SCE = true; // Arrived at SCE
                 swap(pilot, copilot);
 
-                cout << "The plane has arrived at SCE." << endl;
+                cout << "The plane " << this << " has arrived at SCE." << endl;
 
-                if (pilot) {
-                    cout << "Pilot " << pilot->getName() << " is now in control of the plane." << endl;
+                if (pilot)
+                {
+                    cout << "Pilot " << pilot->getName() << " with certificate number " << pilot << " is now in control of the plane: " << this << endl;
                 }
-                if (copilot) {
-                    cout << "Copilot " << copilot->getName() << " is in control of the plane." << endl;
+                if (copilot)
+                {
+                    cout << "Copilot " << copilot->getName() << " with certificate number " << copilot << " is in control of the plane: " << this << endl;
                 }
             }
 
@@ -114,38 +111,45 @@ public:
         }
     }
 
-    void setFlightDistances(const vector<FlightMaps>& flights) {
+    void setFlightDistances(const vector<FlightMaps>& flights)
+    {
         flight_distance = flights; // Set flight distances
     }
 };
 
 // Main Function
-int main() {
+int main()
+{
+    // Initializing Origin and Destination
     string Origin = "SCE";
     string Destination = "ORD";
     Plane plane(Origin, Destination);
 
-    vector<FlightMaps> flights = {
-        FlightMaps("SCE", "PHL", 160),
-        FlightMaps("SCE", "ORD", 640),
-        FlightMaps("SCE", "EWR", 220)
-    };
+    // Storing flight details
+    vector<FlightMaps> flights = { FlightMaps("SCE", "PHL", 160), FlightMaps("SCE", "ORD", 640), FlightMaps("SCE", "EWR", 220) };
 
+    // Getting flight distance
     plane.setFlightDistances(flights);
 
-    auto pilot = make_unique<Pilot>("Ice-Man");
-    auto copilot = make_unique<Pilot>("Percival");
-    plane.setPilots(move(pilot), move(copilot));
+    // Pilot initialization
+    Pilot pilot("Ice-Man");
+    Pilot copilot("Percival");
+    plane.setPilots(&pilot, &copilot);
+    pilot.myPlane = &plane;
+    copilot.myPlane = &plane;
 
     double vel = 420;
     plane.setVel(vel);
     double tspan = 69;
 
-    int maxiters = 1500;
+    int maxiters = 1500, iter = 0;
 
-    for (int iter = 0; iter <= maxiters; ++iter) {
-        cout << "Operating the plane..." << endl;
+    while (iter <= maxiters)
+    {
+        cout << "Pilot " << pilot.getName() << " with certificate number " << &pilot << " is in control of the plane: " << &plane << endl;
+        cout << "Copilot " << copilot.getName() << " with certificate number " << &copilot << " is in control of the plane: 0x0" << '\n' << endl;
         plane.operate(tspan);
+        iter++;
     }
 
     return 0;
