@@ -1,4 +1,0 @@
-# Question 5. 
-A potential problem that could arise is that the new robot might attempt to pick up the tools once the first robot has completed its task. However, if the original robot is immediately reassigned to pick up the tools again, there will be nothing left to collect. Alternatively, the original robot might be the first to pick up the tools, leaving the new robot without anything to pick up. 
-
-One possible solution to this issue would be to implement a time-based check before any robot is allowed to pick up the tools, regardless of when the task was assigned. After waiting for a predetermined period, the robots would then verify whether the tools are available before attempting to collect them. This approach should help address the problem.
