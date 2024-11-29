@@ -11,7 +11,7 @@ To access Homework 02, you need to clone the repository and follow the instructi
 1. **Clone the repository**:
    - Run the following command to clone the homework repository:
      ```bash
-     git clone https://github.com/galxhad/AERSP-424.git
+     git clone https://github.com/galxhad/AERSP-424/tree/feature/homework02
      ```
    
 2. **Build the project**:
