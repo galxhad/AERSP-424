@@ -1,0 +1,15 @@
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/Question1.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/Question2.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/Question3.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/Question4_part1.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/Question4_part2.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/INSTALL.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/CMakeFiles/INSTALL.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/CMakeFiles/ALL_BUILD.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/source/CMakeFiles/INSTALL.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/source/3rd_party/CMakeFiles/nodesoup.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/source/3rd_party/CMakeFiles/INSTALL.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/source/matplot/CMakeFiles/matplot.dir
+C:/Users/devsa/Documents/GitHub/AERSP-424/homework02/build/matplot/source/matplot/CMakeFiles/INSTALL.dir
