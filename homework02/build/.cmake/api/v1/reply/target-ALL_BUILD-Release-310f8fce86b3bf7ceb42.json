@@ -1,0 +1,54 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "Question1::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Question4_part1::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Question4_part2::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "matplot::@9a0f78bbde1285797b90"
+		},
+		{
+			"id" : "nodesoup::@85022759f6fa8a36ffd6"
+		},
+		{
+			"id" : "Question2::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Question3::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

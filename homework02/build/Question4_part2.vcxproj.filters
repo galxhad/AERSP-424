@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\devsa\Documents\GitHub\AERSP-424\homework02\src\Question4part2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\devsa\Documents\GitHub\AERSP-424\homework02\CMakelists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{92951BDE-2F22-38DC-BD16-1E75A0C4A439}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
