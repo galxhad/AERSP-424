@@ -19,12 +19,12 @@ To access Homework 02, you need to clone the repository and follow the instructi
      cd AERSP-424
      git checkout feature/homework02
      ```     
-2. **Cloning MatPlot++**:
-   - Once you are in the branch homework repository, you will need to clone MatPlot++ to run the build.sh, run the following command to colne MatPlot++ in the branch repository:
+3. **Cloning MatPlot++**:
+   - Once you are in the branch homework repository, you will need to clone MatPlot++ to run the build.sh, run the following command to clone MatPlot++ in the branch repository:
      ```bash
      git submodule update --init --recursive
      ```  
-3. **Build the project**:
+4. **Build the project**:
    - Omce the MatPlot++ is cloned, run the following command to build the project:
      ```bash
      bash build.sh
